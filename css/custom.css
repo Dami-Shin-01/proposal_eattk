@@ -335,21 +335,44 @@ section {
 .cta-box p { margin: 0 0 var(--spacing-unit); font-size: 1.1rem; color: var(--color-text-muted); }
 .cta-box p strong { color: var(--color-text); }
 .cta-button {
-    display: inline-block;
-    background: linear-gradient(45deg, var(--color-secondary), var(--color-primary));
-    color: var(--color-background);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    color: #ffffff;
     padding: calc(var(--spacing-unit) * 2) calc(var(--spacing-unit) * 6);
     border-radius: calc(var(--border-radius) / 1.5);
+    border: 2px solid rgba(255, 255, 255, 0.6);
     text-decoration: none;
     font-size: 1.2rem;
     font-weight: 700;
     text-transform: uppercase;
+    letter-spacing: 0.08em;
     margin-top: calc(var(--spacing-unit) * 3);
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
     transition: var(--transition-base);
 }
+.cta-button::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 30% 0%, rgba(255, 255, 255, 0.4), transparent 60%);
+    opacity: 0;
+    pointer-events: none;
+    z-index: -1;
+    transition: opacity 0.35s ease;
+}
 .cta-button:hover {
-    transform: translateY(-5px) scale(1.05);
-    box-shadow: 0 15px 30px rgba(0, 255, 194, 0.2);
+    background-color: #000000;
+    border-color: #000000;
+    color: #ffffff;
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.55), 0 0 25px rgba(255, 255, 255, 0.35);
+}
+.cta-button:hover::after {
+    opacity: 1;
 }
 
 /* --- Footer & Marquee --- */
