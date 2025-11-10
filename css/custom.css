@@ -1,5 +1,25 @@
-/* --- Google Fonts Import --- */
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+/* --- Custom Font Definitions --- */
+/* Anton for Headings (English) */
+@font-face {
+  font-family: 'Anton';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/anton/v25/1Ptgg87LROyU_g0yBrowser.woff2) format('woff2');
+  unicode-range: U+0041-005A, U+0061-007A; /* A-Z, a-z */
+}
+
+/* Inter for Body (English) */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v13/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1ZL7.woff2) format('woff2');
+  unicode-range: U+0041-005A, U+0061-007A; /* A-Z, a-z */
+}
 
 /*
 --- Design System ---
@@ -21,8 +41,8 @@
     --color-error: #FF5252;
 
     /* Typography */
-    --font-family-heading: 'Anton', 'Impact', sans-serif;
-    --font-family-body: 'Inter', 'system-ui', sans-serif;
+    --font-family-heading: 'Anton', 'Pretendard', sans-serif;
+    --font-family-body: 'Inter', 'Pretendard', sans-serif;
 
     /* Spacing & Radius */
     --spacing-unit: 8px;
@@ -280,15 +300,22 @@ section {
 
 /* --- ROI Section --- */
 .roi-section {
-    background: linear-gradient(45deg, var(--color-secondary), var(--color-primary));
-    color: var(--color-background);
+    background: var(--color-background);
+    color: var(--color-text);
     text-align: center;
+    transition: var(--transition-base);
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+    padding: calc(var(--spacing-unit) * 12) 0;
 }
-.roi-section .section-title, .roi-section .section-subtitle { color: var(--color-background); }
+.roi-section:hover {
+    box-shadow: 0 0 40px rgba(0, 255, 194, 0.15), inset 0 0 40px rgba(0, 255, 194, 0.1);
+}
+.roi-section .section-title, .roi-section .section-subtitle { color: var(--color-text); }
 .roi-content p { font-size: 1.3rem; font-weight: 500; }
 .roi-content .highlight {
     font-family: var(--font-family-heading);
-    color: var(--color-background);
+    color: var(--color-primary);
     font-size: 2.5rem;
     display: block;
     margin-top: var(--spacing-unit);
